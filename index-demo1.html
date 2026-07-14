@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asserbo Tagdækning ApS — Tagdækning i Nordsjælland</title>
+<meta name="description" content="Asserbo Tagdækning ApS lægger, reparerer og renoverer tage til huse og sommerhuse i Nordsjælland. Ring 22 16 74 00.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#24262a;
+    --ink-soft:#4b4e52;
+    --tile:#b5502f;
+    --tile-deep:#8c3b21;
+    --zinc:#8b948c;
+    --paper:#f3f0e8;
+    --paper-dim:#e9e4d8;
+    --pine:#2d3a34;
+    --pine-deep:#1e2822;
+    --radius:2px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.brand{
+    font-family:'Bricolage Grotesque',sans-serif;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .mono{
+    font-family:'IBM Plex Mono',monospace;
+    letter-spacing:0.02em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img,svg{display:block;max-width:100%;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  section{position:relative;}
+
+  /* focus visibility */
+  a:focus-visible,button:focus-visible{
+    outline:3px solid var(--tile);
+    outline-offset:3px;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important; scroll-behavior:auto !important;}
+  }
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(243,240,232,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid rgba(36,38,42,0.08);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:16px 28px;max-width:1180px;margin:0 auto;
+  }
+  .brand{
+    font-size:1.05rem;font-weight:700;
+    display:flex;flex-direction:column;line-height:1.1;
+  }
+  .brand small{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:0.62rem;font-weight:500;
+    color:var(--tile);letter-spacing:0.16em;
+    text-transform:uppercase;margin-top:3px;
+  }
+  .nav-links{display:flex;gap:28px;align-items:center;}
+  .nav-links a{font-size:0.9rem;font-weight:500;color:var(--ink-soft);}
+  .nav-links a:hover{color:var(--tile);}
+  .call-pill{
+    display:flex;align-items:center;gap:8px;
+    background:var(--ink);color:var(--paper);
+    padding:9px 16px 9px 12px;border-radius:100px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.86rem;font-weight:500;
+    white-space:nowrap;
+    transition:background 0.2s ease;
+  }
+  .call-pill:hover{background:var(--tile-deep);}
+  .call-pill svg{width:15px;height:15px;flex:none;}
+  @media (max-width:760px){
+    .nav-links a:not(.call-pill){display:none;}
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    overflow:hidden;
+    background:linear-gradient(180deg, var(--paper) 0%, var(--paper) 60%, var(--paper-dim) 100%);
+    padding:64px 0 72px;
+  }
+  .hero-grid{
+    display:grid;grid-template-columns:1.1fr 0.9fr;
+    gap:40px;align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.74rem;
+    text-transform:uppercase;letter-spacing:0.14em;
+    color:var(--tile-deep);margin-bottom:18px;
+  }
+  .eyebrow::before{
+    content:"";width:18px;height:1px;background:var(--tile);
+  }
+  .hero h1{
+    font-size:clamp(2.3rem, 4.6vw, 3.6rem);
+    font-weight:700;
+    color:var(--ink);
+    max-width:14ch;
+  }
+  .hero p.lede{
+    margin-top:22px;max-width:46ch;
+    font-size:1.08rem;color:var(--ink-soft);
+  }
+  .hero-ctas{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;
+    padding:14px 22px;border-radius:100px;
+    font-weight:600;font-size:0.95rem;
+    border:1px solid transparent;
+    transition:transform 0.15s ease, background 0.2s ease, color 0.2s ease;
+  }
+  .btn-primary{background:var(--tile);color:var(--paper);}
+  .btn-primary:hover{background:var(--tile-deep);transform:translateY(-1px);}
+  .btn-ghost{border-color:rgba(36,38,42,0.25);color:var(--ink);}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-1px);}
+  .btn svg{width:16px;height:16px;}
+
+  .hero-visual{position:relative;height:420px;border-radius:6px;overflow:hidden;box-shadow:0 18px 40px -18px rgba(36,38,42,0.35);}
+  .hero-photo{width:100%;height:100%;object-fit:cover;}
+
+  /* ---------- Section shell ---------- */
+  .section{padding:96px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head h2{
+    font-size:clamp(1.7rem, 3vw, 2.3rem);font-weight:700;margin-top:6px;
+  }
+  .section-dark{background:var(--pine-deep);color:var(--paper);}
+  .section-dark .eyebrow{color:#e0a487;}
+  .section-dark .eyebrow::before{background:#e0a487;}
+  .section-dark .section-head p{color:#c8cfc9;}
+
+  /* ---------- Services ---------- */
+  .services-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:1px;
+    background:rgba(36,38,42,0.1);
+    border:1px solid rgba(36,38,42,0.1);
+  }
+  .service-card{
+    background:var(--paper);padding:36px;
+    display:flex;flex-direction:column;gap:16px;
+    transition:background 0.2s ease;
+  }
+  .service-card:hover{background:#fffdf9;}
+  .service-icon{
+    width:42px;height:42px;color:var(--tile);
+  }
+  .service-card h3{font-size:1.15rem;font-weight:600;}
+  .service-card p{margin:0;color:var(--ink-soft);font-size:0.95rem;}
+  @media (max-width:720px){
+    .services-grid{grid-template-columns:1fr;}
+    .hero-grid{grid-template-columns:1fr;}
+    .hero-visual{height:280px;order:-1;}
+  }
+
+  /* ---------- Layer diagram (signature) ---------- */
+  .layers-wrap{
+    display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;
+  }
+  .layer-stack{display:flex;flex-direction:column-reverse;gap:6px;}
+  .layer-row{
+    display:flex;align-items:center;gap:18px;
+    opacity:0;transform:translateY(14px);
+    transition:opacity 0.6s ease, transform 0.6s ease;
+  }
+  .layer-row.visible{opacity:1;transform:translateY(0);}
+  .layer-bar{
+    height:46px;border-radius:2px;flex:none;
+    display:flex;align-items:center;padding-left:16px;
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:var(--paper);
+  }
+  .layer-num{
+    font-family:'IBM Plex Mono',monospace;font-size:0.78rem;color:#8ea393;width:20px;flex:none;
+  }
+  .layer-copy h4{margin:0 0 4px;font-weight:600;font-size:1.02rem;}
+  .layer-copy p{margin:0;color:#c8cfc9;font-size:0.92rem;max-width:40ch;}
+  .layer-diagram-visual{position:relative;}
+
+  /* ---------- Why us ---------- */
+  .why-wrap{
+    display:grid;grid-template-columns:1.3fr 1fr;gap:56px;align-items:center;
+  }
+  .why-photo{border-radius:6px;overflow:hidden;box-shadow:0 18px 40px -18px rgba(36,38,42,0.3);}
+  .why-photo img{width:100%;height:100%;object-fit:cover;display:block;min-height:360px;}
+  .why-grid{
+    display:grid;grid-template-columns:repeat(2,1fr);gap:32px 28px;
+  }
+  .why-item{display:flex;gap:16px;align-items:flex-start;}
+  .why-num{
+    font-family:'IBM Plex Mono',monospace;font-size:0.85rem;color:var(--tile);
+    border:1px solid rgba(36,38,42,0.18);border-radius:100px;
+    width:34px;height:34px;flex:none;display:flex;align-items:center;justify-content:center;
+  }
+  .why-item h3{font-size:1.02rem;font-weight:600;margin-bottom:6px;}
+  .why-item p{margin:0;color:var(--ink-soft);font-size:0.92rem;}
+  @media (max-width:900px){
+    .why-wrap{grid-template-columns:1fr;}
+    .why-photo{order:-1;}
+    .why-photo img{min-height:240px;}
+  }
+  @media (max-width:560px){.why-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Process ---------- */
+  .process-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:1px;
+    background:rgba(36,38,42,0.1);border:1px solid rgba(36,38,42,0.1);
+  }
+  .process-step{
+    background:var(--paper);padding:32px 28px;position:relative;
+  }
+  .process-step:not(:last-child)::after{
+    content:"→";position:absolute;right:-11px;top:32px;
+    color:var(--tile);font-family:'IBM Plex Mono',monospace;font-size:0.9rem;
+    z-index:2;
+  }
+  @media (max-width:900px){
+    .process-step:not(:last-child)::after{display:none;}
+  }
+  .process-num{
+    display:inline-block;font-size:0.8rem;color:var(--tile);margin-bottom:14px;
+  }
+  .process-step h3{font-size:1.02rem;font-weight:600;margin-bottom:8px;}
+  .process-step p{margin:0;color:var(--ink-soft);font-size:0.92rem;}
+  @media (max-width:900px){.process-grid{grid-template-columns:repeat(2,1fr);}}
+  @media (max-width:560px){.process-grid{grid-template-columns:1fr;}}
+
+  /* ---------- Photo banner ---------- */
+  .photo-banner{position:relative;height:280px;overflow:hidden;}
+  .photo-banner img{width:100%;height:100%;object-fit:cover;}
+  .photo-banner-overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(30,40,34,0.05) 0%, rgba(20,26,22,0.75) 100%);
+    display:flex;align-items:flex-end;
+  }
+  .photo-banner-overlay p{
+    color:var(--paper);font-family:'Bricolage Grotesque',sans-serif;
+    font-size:clamp(1.05rem,2.4vw,1.4rem);font-weight:600;
+    max-width:32ch;margin:0;padding:28px;
+  }
+  @media (max-width:600px){.photo-banner{height:200px;}}
+
+  /* ---------- Contact ---------- */
+  .contact-wrap{
+    display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:center;
+  }
+  .contact-phone{
+    font-family:'Bricolage Grotesque',sans-serif;
+    font-size:clamp(2.4rem,6vw,3.4rem);font-weight:800;
+    color:var(--tile);
+  }
+  .contact-list{list-style:none;margin:28px 0 0;padding:0;display:flex;flex-direction:column;gap:12px;}
+  .contact-list li{
+    display:flex;gap:12px;font-size:0.96rem;color:var(--ink-soft);
+  }
+  .contact-list svg{width:18px;height:18px;flex:none;margin-top:2px;color:var(--tile);}
+  .contact-card{
+    background:var(--paper-dim);border:1px solid rgba(36,38,42,0.1);
+    padding:36px;border-radius:4px;
+  }
+  .contact-card .mono{font-size:0.74rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--tile-deep);}
+  .contact-card h3{margin-top:10px;font-size:1.3rem;font-weight:700;}
+  .contact-card p{color:var(--ink-soft);margin-top:10px;}
+  @media (max-width:800px){.contact-wrap{grid-template-columns:1fr;}}
+
+  /* ---------- Footer ---------- */
+  footer{
+    background:var(--ink);color:#c9c9c6;
+    padding:36px 0;font-size:0.85rem;
+  }
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer a:hover{color:var(--paper);}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">ASSERBO TAGDÆKNING
+      <small>Nordsjælland · Etableret lokalt</small>
+    </div>
+    <nav class="nav-links">
+      <a href="#ydelser">Ydelser</a>
+      <a href="#opbygning">Sådan arbejder vi</a>
+      <a href="#kontakt">Kontakt</a>
+      <a class="call-pill" href="tel:22167400">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z"/></svg>
+        22 16 74 00
+      </a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <div class="eyebrow">Tagdækning i Nordsjælland</div>
+        <h1>Et tag, der tåler vejret fra Kattegat.</h1>
+        <p class="lede">Vi lægger, reparerer og renoverer tage til huse og sommerhuse mellem Liseleje og Frederiksværk. Solidt håndværk, tætte samlinger, og et tag der bliver stående, når blæsten tager til.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-primary" href="tel:22167400">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z"/></svg>
+            Ring 22 16 74 00
+          </a>
+          <a class="btn btn-ghost" href="#ydelser">Se vores ydelser</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <img class="hero-photo" src="https://images.unsplash.com/photo-1763665814538-8ba04597286c?auto=format&fit=crop&w=1000&q=80" alt="Håndværkere lægger tagsten på et nyt tag">
+      </div>
+    </div>
+
+  </section>
+
+  <!-- ================= YDELSER ================= -->
+  <section class="section" id="ydelser">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Ydelser</div>
+        <h2>Fra tagpap til tegl</h2>
+      </div>
+    </div>
+    <div class="wrap">
+      <div class="services-grid">
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="8" y="20" width="32" height="14" rx="1"/>
+            <path d="M8 20 22 24 8 28" />
+            <path d="M40 20 26 24 40 28"/>
+            <line x1="8" y1="24" x2="40" y2="24" stroke-dasharray="2 3"/>
+          </svg>
+          <h3>Tagpap &amp; flade tage</h3>
+          <p>Vandtætte løsninger til garager, udestuer og sommerhuse — svejset og lagt med omhu i alle samlinger og inddækninger.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M6 32 24 10 42 32"/>
+            <line x1="10" y1="24" x2="38" y2="24"/>
+            <line x1="14" y1="18" x2="34" y2="18"/>
+          </svg>
+          <h3>Tegl- &amp; betontag</h3>
+          <p>Klassiske tagsten lagt tæt og lige, kurve for kurve, så taget både ser rigtigt ud og holder i generationer.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M14 8 34 28 M28 8 8 28"/>
+            <circle cx="34" cy="34" r="6"/>
+          </svg>
+          <h3>Reparation &amp; vedligehold</h3>
+          <p>Utætheder, løse tagsten og stormskader — vi rykker hurtigt ud, finder årsagen og lukker taget tæt igen.</p>
+        </div>
+
+        <div class="service-card">
+          <svg class="service-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.6">
+            <rect x="12" y="10" width="24" height="18" rx="1"/>
+            <line x1="12" y1="19" x2="36" y2="19"/>
+            <line x1="24" y1="10" x2="24" y2="28"/>
+            <path d="M14 34h20l-2 6H16z"/>
+          </svg>
+          <h3>Ovenlys &amp; inddækninger</h3>
+          <p>Tætning omkring skorstene, kviste og ovenlysvinduer — der, hvor vand og blæst oftest finder vej ind.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LAYER DIAGRAM (signature) ================= -->
+  <section class="section section-dark" id="opbygning">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Sådan arbejder vi</div>
+        <h2>Lag for lag, tæt til vejret</h2>
+      </div>
+
+      <div class="layers-wrap">
+        <div class="layer-diagram-visual">
+          <div class="layer-stack" id="layerStack">
+            <div class="layer-row" data-i="0">
+              <span class="layer-num">01</span>
+              <div class="layer-bar" style="width:100%;background:#4b4e52;">Spær</div>
+            </div>
+            <div class="layer-row" data-i="1">
+              <span class="layer-num">02</span>
+              <div class="layer-bar" style="width:92%;background:#5c5f3d;">Undertag</div>
+            </div>
+            <div class="layer-row" data-i="2">
+              <span class="layer-num">03</span>
+              <div class="layer-bar" style="width:84%;background:#8b7a4a;">Lægter</div>
+            </div>
+            <div class="layer-row" data-i="3">
+              <span class="layer-num">04</span>
+              <div class="layer-bar" style="width:76%;background:#b5502f;">Tagpap / tagsten</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="layer-copy" id="layerCopyBox">
+          <div class="layer-row visible">
+            <div>
+              <h4>Spær — bærer hele konstruktionen</h4>
+              <p>Vi tjekker altid, at den bærende konstruktion er sund, før noget nyt lægges ovenpå.</p>
+            </div>
+          </div>
+          <div style="height:22px"></div>
+          <div class="layer-row visible">
+            <div>
+              <h4>Undertag — den skjulte sikkerhed</h4>
+              <p>En diffusionsåben membran leder fugt og evt. slagregn væk, længe før det når loftet.</p>
+            </div>
+          </div>
+          <div style="height:22px"></div>
+          <div class="layer-row visible">
+            <div>
+              <h4>Lægter — den lige linje</h4>
+              <p>Opsat i nøjagtig afstand, så hver eneste tagsten eller bane tagpap sidder præcis, hvor den skal.</p>
+            </div>
+          </div>
+          <div style="height:22px"></div>
+          <div class="layer-row visible">
+            <div>
+              <h4>Det synlige lag — tagpap eller tagsten</h4>
+              <p>Det lag der møder vejret hver dag. Her handler det om tætte samlinger og et resultat, der ser rigtigt ud.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= WHY US ================= -->
+  <section class="section">
+    <div class="wrap why-wrap">
+      <div>
+        <div class="section-head">
+          <div class="eyebrow">Hvorfor Asserbo Tagdækning</div>
+          <h2>Håndværk, du kan regne med</h2>
+        </div>
+        <div class="why-grid">
+          <div class="why-item">
+            <span class="why-num mono">01</span>
+            <div>
+              <h3>Lokalkendskab til Nordsjælland</h3>
+              <p>Vi kender husene og sommerhusene langs kysten — og det vejr, tagene her skal holde til.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-num mono">02</span>
+            <div>
+              <h3>Fast pris, før vi går i gang</h3>
+              <p>Du får en klar aftale om omfang og pris, inden det første tagsten bliver løftet.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-num mono">03</span>
+            <div>
+              <h3>Ryddeligt fra dag ét</h3>
+              <p>Vi rydder op efter os hver eneste dag — dit hus og din have skal ikke ligge og vente.</p>
+            </div>
+          </div>
+          <div class="why-item">
+            <span class="why-num mono">04</span>
+            <div>
+              <h3>Hurtig responstid ved skader</h3>
+              <p>Storm eller utæthed venter ikke — ring, og vi vurderer sagen hurtigst muligt.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="why-photo">
+        <img src="https://images.unsplash.com/photo-1623062284286-febaf4f87d0c?auto=format&fit=crop&w=900&q=80" alt="Tætte tagsten lagt i nøjagtige rækker">
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PROCESS ================= -->
+  <section class="section" style="padding-top:0;">
+    <div class="wrap">
+      <div class="section-head">
+        <div class="eyebrow">Forløbet</div>
+        <h2>Sådan foregår det</h2>
+      </div>
+      <div class="process-grid">
+
+        <div class="process-step">
+          <span class="process-num mono">01</span>
+          <h3>Du ringer eller skriver</h3>
+          <p>Fortæl kort om taget og hvad der er galt, eller hvad du gerne vil have lavet.</p>
+        </div>
+
+        <div class="process-step">
+          <span class="process-num mono">02</span>
+          <h3>Vi besigtiger taget</h3>
+          <p>Vi kommer forbi, ser på konstruktionen og finder den løsning, der passer til huset.</p>
+        </div>
+
+        <div class="process-step">
+          <span class="process-num mono">03</span>
+          <h3>Du får et fast tilbud</h3>
+          <p>Klar pris og tidsplan, skriftligt, før vi rører ved noget.</p>
+        </div>
+
+        <div class="process-step">
+          <span class="process-num mono">04</span>
+          <h3>Vi udfører og rydder op</h3>
+          <p>Arbejdet bliver udført til aftalt tid, og pladsen er ryddet, når vi går.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= PHOTO BANNER ================= -->
+  <section class="photo-banner">
+    <img src="https://images.unsplash.com/photo-1644604120663-4e5fcdf33104?auto=format&fit=crop&w=1600&q=80" alt="Tætte tagsten set ovenfra">
+    <div class="photo-banner-overlay">
+      <p>Hver enkelt tagsten lagt, så vandet altid løber den rigtige vej.</p>
+    </div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <section class="section" id="kontakt" style="background:var(--paper-dim);">
+    <div class="wrap contact-wrap">
+      <div>
+        <div class="eyebrow">Kontakt</div>
+        <h2 style="font-size:clamp(1.7rem,3vw,2.3rem);font-weight:700;">Klar til et uforpligtende tilbud?</h2>
+        <a href="tel:22167400" class="contact-phone" style="display:block;margin-top:20px;">22 16 74 00</a>
+        <ul class="contact-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+            Man–fre: 07:00–16:00. Akutte skader vurderes hurtigst muligt.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+            Dækker Halsnæs, Frederiksværk, Hundested, Liseleje, Tisvildeleje og Gilleleje.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12l2-7h14l2 7M5 12v7h14v-7M9 19v-4h6v4"/></svg>
+            Helårshuse, sommerhuse og mindre erhvervsbygninger.
+          </li>
+        </ul>
+      </div>
+
+      <div class="contact-card">
+        <div class="mono">Ring direkte</div>
+        <h3>Asserbo Tagdækning ApS</h3>
+        <p>Beskriv kort taget og skaden eller opgaven, så vi kan forberede os bedst muligt inden vi ringer tilbage eller kommer forbi.</p>
+        <a class="btn btn-primary" href="tel:22167400" style="margin-top:20px;">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L14 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 2 6a2 2 0 0 1 2-2z"/></svg>
+          22 16 74 00
+        </a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-row">
+    <span>© 2026 Asserbo Tagdækning ApS</span>
+    <span class="mono">Nordsjælland</span>
+    <a href="tel:22167400">22 16 74 00</a>
+  </div>
+</footer>
+
+<script>
+  // reveal layer rows on scroll
+  const rows = document.querySelectorAll('#layerStack .layer-row');
+  if ('IntersectionObserver' in window){
+    const obs = new IntersectionObserver((entries)=>{
+      entries.forEach(e=>{
+        if(e.isIntersecting){
+          const i = Number(e.target.dataset.i);
+          setTimeout(()=>e.target.classList.add('visible'), i*140);
+          obs.unobserve(e.target);
+        }
+      });
+    },{threshold:0.4});
+    rows.forEach(r=>obs.observe(r));
+  } else {
+    rows.forEach(r=>r.classList.add('visible'));
+  }
+</script>
+
+</body>
+</html>
